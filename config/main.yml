@@ -15,4 +15,4 @@
 
 # Configuration for the Java +main()+ container
 ---
-java-main: Hello
+java_main_class: "Hello"
