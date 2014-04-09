@@ -54,6 +54,9 @@ module JavaBuildpack
     # @return [Array<String>] An array of strings that identify the components and versions that will be used to run
     #                         this application.  If no container can run the application, the array will be empty
     #                         (+[]+).
+
+    # tags 中包含了 components.yml 中所有的 实例化对象调用detect之后 的结果
+    # 返回为一个 一维数组
     def detect
       jre_detections = Buildpack.component_detections @jres
       raise "Application can be run using more than one JRE: #{jre_detections.join(', ')}" if jre_detections.size > 1
@@ -112,6 +115,8 @@ module JavaBuildpack
     LIB_DIRECTORY = '.lib'
 
     # Instances should only be constructed by this class.
+    # initialize的结果是得到三个 @jres @framworks @contains
+    # 这个三个都是 array，内容是 components.yml中对应的 string的 实例化 对象
     def initialize(app_dir)
       @logger = JavaBuildpack::Diagnostics::LoggerFactory.get_logger
       Buildpack.log_git_data @logger
@@ -135,7 +140,7 @@ module JavaBuildpack
           vcap_application: vcap_application ? YAML.load(vcap_application) : {},
           vcap_services: vcap_services ? YAML.load(vcap_services) : {}
       }
-
+      # 从 components.yml中生成对象，components中{"jre"=>[jre1,jre2],"framworks"=>['f1','f2']}
       @jres = Buildpack.construct_components(components, 'jres', basic_context, @logger)
       @frameworks = Buildpack.construct_components(components, 'frameworks', basic_context, @logger)
       @containers = Buildpack.construct_components(components, 'containers', basic_context, @logger)
@@ -179,7 +184,8 @@ module JavaBuildpack
 
     def self.construct_components(components, type, basic_context, logger)
       components[type].map do |component|
-        component.constantize.new(Buildpack.configure_context(basic_context, component, logger))
+        #component.constantize.new(Buildpack.configure_context(basic_context, component, logger))
+        eval(component).new(Buildpack.configure_context(basic_context, component, logger))
       end
     end
 

@@ -16,7 +16,7 @@
 # Configuration for components to use in the buildpack
 ---
 containers:
-  - "JavaBuildpack::Container::JavaMain"
+  - "JavaBuildpack::Container::Main"
 jres:
   - "JavaBuildpack::Jre::OpenJdk"
 #frameworks:
