@@ -16,8 +16,8 @@
 # Configuration for components to use in the buildpack
 ---
 containers:
-  - "JavaBuildpack::Container::Tomcat"
+  - "JavaBuildpack::Container::JavaMain"
 jres:
   - "JavaBuildpack::Jre::OpenJdk"
-frameworks:
-  - "JavaBuildpack::Framework::JavaOpts"
+#frameworks:
+#  - "JavaBuildpack::Framework::JavaOpts"
