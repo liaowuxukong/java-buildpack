@@ -28,7 +28,7 @@ require 'yaml'
 
 payload = {
     'default_process_types' => {
-        'web' => 'java -cp . Hello'
+        'web' => 'ruby hello.rb'
     }
 }.to_yaml
 
