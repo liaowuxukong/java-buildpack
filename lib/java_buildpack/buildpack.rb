@@ -79,8 +79,8 @@ module JavaBuildpack
       FileUtils.mkdir_p @lib_directory
 
       #jre.compile
-      frameworks.each { |framework| framework.compile }
-      the_container.compile
+      #frameworks.each { |framework| framework.compile }
+      #the_container.compile
     end
 
     # Generates the payload required to run the application.  The payload format is defined by the
