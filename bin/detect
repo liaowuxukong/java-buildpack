@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 # Encoding: utf-8
 
+print "in detect file"
 
 $stdout.sync = true
 $stderr.sync = true
