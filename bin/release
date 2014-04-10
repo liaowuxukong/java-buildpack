@@ -15,15 +15,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-puts "in release.rb file"
-
 $stdout.sync = true
 $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 
-require 'java_buildpack/buildpack'
+#require 'java_buildpack/buildpack'
+require 'yaml'
 
-build_dir = ARGV[0]
+#build_dir = ARGV[0]
 
-puts JavaBuildpack::Buildpack.drive_buildpack_with_logger(build_dir, 'Release failed with exception %s') { |buildpack| buildpack.release }
+#puts JavaBuildpack::Buildpack.drive_buildpack_with_logger(build_dir, 'Release failed with exception %s') { |buildpack| buildpack.release }
+
+payload = {
+    'default_process_types' => {
+        'web' => 'java -cp . Hello'
+    }
+}.to_yaml
+
+
+puts payload
