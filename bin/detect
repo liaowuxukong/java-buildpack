@@ -1,12 +1,3 @@
-#!/usr/bin/env bash
-
-if [ -f $1/cache-test.txt ]; then
-  echo "CACHETEST" && exit 0
-else
-  echo "no" && exit 1
-fi
-
-
 # !/usr/bin/env ruby
 # Encoding: utf-8
 # Cloud Foundry Java Buildpack
@@ -45,3 +36,4 @@ fi
 #  puts components.join(', ')
 #end
 
+puts "hello"
