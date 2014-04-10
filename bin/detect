@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 # Encoding: utf-8
 
-puts  "in detect file"
+puts "hello"
 
+=begin
 $stdout.sync = true
 $stderr.sync = true
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
@@ -18,3 +19,5 @@ if components.empty?
 else
   puts components.join(', ')
 end
+
+=end
