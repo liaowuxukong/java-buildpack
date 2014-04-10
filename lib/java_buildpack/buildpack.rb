@@ -78,7 +78,7 @@ module JavaBuildpack
       the_container = container # diagnose detect failure early
       FileUtils.mkdir_p @lib_directory
 
-      jre.compile
+      #jre.compile
       frameworks.each { |framework| framework.compile }
       the_container.compile
     end
