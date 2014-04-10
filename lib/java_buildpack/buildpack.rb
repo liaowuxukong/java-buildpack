@@ -118,6 +118,9 @@ module JavaBuildpack
     # initialize的结果是得到三个 @jres @framworks @contains
     # 这个三个都是 array，内容是 components.yml中对应的 string的 实例化 对象
     def initialize(app_dir)
+
+      puts "create buildpack"
+
       @logger = JavaBuildpack::Diagnostics::LoggerFactory.get_logger
       Buildpack.log_git_data @logger
       Buildpack.dump_environment_variables @logger
