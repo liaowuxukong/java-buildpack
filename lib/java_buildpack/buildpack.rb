@@ -40,13 +40,13 @@ module JavaBuildpack
     # @return [Object] the return value from the given block
     def self.drive_buildpack_with_logger(app_dir, message)
       logger = JavaBuildpack::Diagnostics::LoggerFactory.create_logger app_dir
-      #begin
-      #  yield new(app_dir)
-      #rescue => e
-      #  logger.error(message % e.inspect)
-      #  logger.debug("Exception #{e.inspect} backtrace:\n#{e.backtrace.join("\n")}")
-      #  abort e.message
-      #end
+      begin
+        yield new(app_dir)
+      rescue => e
+        logger.error(message % e.inspect)
+        logger.debug("Exception #{e.inspect} backtrace:\n#{e.backtrace.join("\n")}")
+        abort e.message
+      end
     end
 
     # Iterates over all of the components to detect if this buildpack can be used to run an application
