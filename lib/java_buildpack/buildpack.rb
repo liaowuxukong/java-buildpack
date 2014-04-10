@@ -75,8 +75,8 @@ module JavaBuildpack
     #
     # @return [void]
     def compile
-      the_container = container # diagnose detect failure early
-      FileUtils.mkdir_p @lib_directory
+      #the_container = container # diagnose detect failure early
+      #FileUtils.mkdir_p @lib_directory
 
       #jre.compile
       #frameworks.each { |framework| framework.compile }
