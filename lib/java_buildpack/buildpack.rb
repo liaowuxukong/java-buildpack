@@ -142,9 +142,9 @@ module JavaBuildpack
           vcap_services: vcap_services ? YAML.load(vcap_services) : {}
       }
       # 从 components.yml中生成对象，components中{"jre"=>[jre1,jre2],"framworks"=>['f1','f2']}
-      #@jres = Buildpack.construct_components(components, 'jres', basic_context, @logger)
+      @jres = Buildpack.construct_components(components, 'jres', basic_context, @logger)
       #@frameworks = Buildpack.construct_components(components, 'frameworks', basic_context, @logger)
-      #@containers = Buildpack.construct_components(components, 'containers', basic_context, @logger)
+      @containers = Buildpack.construct_components(components, 'containers', basic_context, @logger)
     end
 
     def self.dump_environment_variables(logger)
