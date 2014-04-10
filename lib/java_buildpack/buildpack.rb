@@ -40,13 +40,13 @@ module JavaBuildpack
     # @return [Object] the return value from the given block
     def self.drive_buildpack_with_logger(app_dir, message)
       logger = JavaBuildpack::Diagnostics::LoggerFactory.create_logger app_dir
-      begin
-        yield new(app_dir)
-      rescue => e
-        logger.error(message % e.inspect)
-        logger.debug("Exception #{e.inspect} backtrace:\n#{e.backtrace.join("\n")}")
-        abort e.message
-      end
+      #begin
+      #  yield new(app_dir)
+      #rescue => e
+      #  logger.error(message % e.inspect)
+      #  logger.debug("Exception #{e.inspect} backtrace:\n#{e.backtrace.join("\n")}")
+      #  abort e.message
+      #end
     end
 
     # Iterates over all of the components to detect if this buildpack can be used to run an application
@@ -142,9 +142,9 @@ module JavaBuildpack
           vcap_services: vcap_services ? YAML.load(vcap_services) : {}
       }
       # 从 components.yml中生成对象，components中{"jre"=>[jre1,jre2],"framworks"=>['f1','f2']}
-      @jres = Buildpack.construct_components(components, 'jres', basic_context, @logger)
-      @frameworks = Buildpack.construct_components(components, 'frameworks', basic_context, @logger)
-      @containers = Buildpack.construct_components(components, 'containers', basic_context, @logger)
+      #@jres = Buildpack.construct_components(components, 'jres', basic_context, @logger)
+      #@frameworks = Buildpack.construct_components(components, 'frameworks', basic_context, @logger)
+      #@containers = Buildpack.construct_components(components, 'containers', basic_context, @logger)
     end
 
     def self.dump_environment_variables(logger)
