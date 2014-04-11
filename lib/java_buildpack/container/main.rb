@@ -67,7 +67,9 @@ module JavaBuildpack::Container
       arguments_string = ContainerUtils.space(arguments)
       port_string = ContainerUtils.space(port)
 
-      "#{java_string}#{classpath_string}#{java_opts_string}#{main_class_string}#{arguments_string}#{port_string}"
+      str = "#{java_string}#{classpath_string}#{java_opts_string}#{main_class_string}#{arguments_string}#{port_string}"
+      puts str
+      str
     end
 
     private
