@@ -61,21 +61,25 @@ module JavaBuildpack::Container
       arguments_string = ContainerUtils.space(arguments)
       port_string = ContainerUtils.space(port)
 
-      puts "#{java_string}#{classpath_string}#{java_opts_string}#{main_class_string}#{arguments_string}#{port_string}"
+      put '-----------path------->'
+      system 'pwd'
+
+      @result =  "#{java_string}#{classpath_string}#{java_opts_string}#{main_class_string}#{arguments_string}#{port_string}"
     end
 
     # Creates the command to run the Java +main()+ application.
     #
     # @return [String] the command to run the application.
     def release
-      java_string = File.join @java_home, 'bin', 'java'
-      classpath_string = ContainerUtils.space(classpath(@app_dir, @lib_directory))
-      java_opts_string = ContainerUtils.space(ContainerUtils.to_java_opts_s(@java_opts))
-      main_class_string = ContainerUtils.space(main_class)
-      arguments_string = ContainerUtils.space(arguments)
-      port_string = ContainerUtils.space(port)
+#      java_string = File.join @java_home, 'bin', 'java'
+#      classpath_string = ContainerUtils.space(classpath(@app_dir, @lib_directory))
+#      java_opts_string = ContainerUtils.space(ContainerUtils.to_java_opts_s(@java_opts))
+#      main_class_string = ContainerUtils.space(main_class)
+#      arguments_string = ContainerUtils.space(arguments)
+#      port_string = ContainerUtils.space(port)
 
-      "#{java_string}#{classpath_string}#{java_opts_string}#{main_class_string}#{arguments_string}#{port_string}"
+#      "#{java_string}#{classpath_string}#{java_opts_string}#{main_class_string}#{arguments_string}#{port_string}"
+      @result
     end
 
     private
