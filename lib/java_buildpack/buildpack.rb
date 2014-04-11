@@ -79,7 +79,7 @@ module JavaBuildpack
       FileUtils.mkdir_p @lib_directory
 
       jre.compile
-      #frameworks.each { |framework| framework.compile }
+      frameworks.each { |framework| framework.compile }
       the_container.compile
     end
 
@@ -143,7 +143,7 @@ module JavaBuildpack
       }
       # 从 components.yml中生成对象，components中{"jre"=>[jre1,jre2],"framworks"=>['f1','f2']}
       @jres = Buildpack.construct_components(components, 'jres', basic_context, @logger)
-      #@frameworks = Buildpack.construct_components(components, 'frameworks', basic_context, @logger)
+      @frameworks = Buildpack.construct_components(components, 'frameworks', basic_context, @logger)
       @containers = Buildpack.construct_components(components, 'containers', basic_context, @logger)
     end
 

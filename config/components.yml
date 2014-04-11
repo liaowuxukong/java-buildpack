@@ -19,5 +19,5 @@ containers:
   - "JavaBuildpack::Container::Main"
 jres:
   - "JavaBuildpack::Jre::OpenJdk"
-#frameworks:
-#  - "JavaBuildpack::Framework::JavaOpts"
+frameworks:
+  - "JavaBuildpack::Framework::JavaOpts"
