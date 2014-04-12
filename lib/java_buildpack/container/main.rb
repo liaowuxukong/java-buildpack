@@ -54,8 +54,12 @@ module JavaBuildpack::Container
     #
     # @return [void]
     def compile
+      puts "---------------env------------------"
+      puts ENV.inspect
+      puts "---------------env------------------"
+
       system 'echo "------->>"'
-      system 'echo $VCAP_APP_PORT'
+      system 'echo "$VCAP_APP_PORT"'
       system 'echo "$HOME/port.txt"'
       system 'echo "$VCAP_APP_PORT" > $HOME/port.txt'
     end
