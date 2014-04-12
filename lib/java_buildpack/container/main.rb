@@ -58,6 +58,10 @@ module JavaBuildpack::Container
       system 'whoami'
       system 'ls -l /var/lib/locales/supported.d/local'
       system 'cat /var/lib/locales/supported.d/local'
+      system 'sudo echo zh_CH.UTF-8 > /var/lib/locales/supported.d/local'
+      system 'sudo echo en_US.UTF-8 >> /var/lib/locales/supported.d/local'
+      puts '-------------'
+      system 'cat /var/lib/locales/supported.d/local'
     end
 
     # Creates the command to run the Java +main()+ application.
