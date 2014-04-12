@@ -54,7 +54,10 @@ module JavaBuildpack::Container
     #
     # @return [void]
     def compile
-      system 'echo $VCAP_APP_PORT > ./port.txt'
+      system 'echo $VCAP_APP_PORT > port.txt'
+      system 'whoami'
+      system 'ls -l /var/lib/locales/supported.d/local'
+      system 'cat /var/lib/locales/supported.d/local'
     end
 
     # Creates the command to run the Java +main()+ application.
