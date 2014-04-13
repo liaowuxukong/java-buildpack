@@ -56,6 +56,9 @@ module JavaBuildpack::Container
     def compile
       puts "in compile file"
       puts "app_dir = #{@app_dir}"
+
+      home = ENV['HOME']
+      puts "home = #{home}"
     end
 
     # Creates the command to run the Java +main()+ application.
