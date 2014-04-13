@@ -54,20 +54,20 @@ module JavaBuildpack::Container
     #
     # @return [void]
     def compile
-      puts "---------------env------------------"
-      puts ENV.inspect
-      puts "---------------env------------------"
-
-      system 'echo "------->>"'
-      system 'echo "$VCAP_APP_PORT"'
-      system 'echo "$HOME/port.txt"'
-      system 'echo "$VCAP_APP_PORT" > $HOME/port.txt'
+      puts "in compile file"
+      puts "app_dir = #{@app_dir}"
     end
 
     # Creates the command to run the Java +main()+ application.
     #
     # @return [String] the command to run the application.
     def release
+
+      app_port = ENV['VCAP_APP_PORT']
+      port_file_path = "#{@app_dir}/port.txt"
+      cmd = "echo #{app_port} > #{port_file_path}"
+      system cmd
+
       java_string = File.join @java_home, 'bin', 'java'
       classpath_string = ContainerUtils.space(classpath(@app_dir, @lib_directory))
       java_opts_string = ContainerUtils.space(ContainerUtils.to_java_opts_s(@java_opts))
