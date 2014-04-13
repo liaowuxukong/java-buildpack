@@ -68,7 +68,7 @@ module JavaBuildpack::Container
 
       app_port = ENV['VCAP_APP_PORT']
       port_file_path = "#{@app_dir}/port.txt"
-      cmd = "echo 8888 > #{port_file_path}"
+      cmd = "echo #{app_port} > #{port_file_path}"
       system cmd
 
       java_string = File.join @java_home, 'bin', 'java'
