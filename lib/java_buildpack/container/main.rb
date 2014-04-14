@@ -70,7 +70,7 @@ module JavaBuildpack::Container
 
       "#{java_string}#{classpath_string}#{java_opts_string}#{main_class_string}#{arguments_string}#{port_string}"
 
-    end
+    end 
 
     private
 
