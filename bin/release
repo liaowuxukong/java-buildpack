@@ -9,17 +9,19 @@ $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'java_buildpack/buildpack'
 
 
-build_dir = ARGV[0] 
-
-puts JavaBuildpack::Buildpack.drive_buildpack_with_logger(build_dir, 'Release failed with exception %s') { |buildpack| buildpack.release }
+build_dir = ARGV[0]
 
 
-#require 'yaml'
-#payload = {
-#    'default_process_types' => {
-#        'web' => 'ruby hello.rb'
-#    }
-#}.to_yaml
+
+#puts JavaBuildpack::Buildpack.drive_buildpack_with_logger(build_dir, 'Release failed with exception %s') { |buildpack| buildpack.release }
 
 
-#puts payload
+require 'yaml'
+payload = {
+    'default_process_types' => {
+        'web' => './java/bin/java -cp . -jar hello.jar'
+    }
+}.to_yaml
+
+
+puts payload
