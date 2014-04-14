@@ -13,4 +13,4 @@ build_dir = ARGV[0]
 puts "-----> build_dir = #{build_dir}"
 
 
-JavaBuildpack::Buildpack.drive_buildpack_with_logger(build_dir, 'Compile failed with exception %s') { |buildpack| buildpack.compile }
+#JavaBuildpack::Buildpack.drive_buildpack_with_logger(build_dir, 'Compile failed with exception %s') { |buildpack| buildpack.compile }
